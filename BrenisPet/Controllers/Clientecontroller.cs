@@ -9,7 +9,7 @@ namespace BrenisPet.Controllers
     {
         [HttpGet]
         [Route("listar")]
-        public dynamic listarCliente()
+        public IActionResult listarCliente()
         {
 
             List<cliente> clientes = new List<cliente>
@@ -31,7 +31,7 @@ namespace BrenisPet.Controllers
                  }
 
             };
-            return clientes; 
+            return Ok( clientes); 
          
 
         }
