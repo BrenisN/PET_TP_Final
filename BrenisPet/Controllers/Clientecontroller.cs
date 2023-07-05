@@ -70,28 +70,28 @@ namespace BrenisPet.Controllers
 
         [HttpPost]
         [Route("eliminar")]
-        public dynamic eliminarCliente(cliente cliente)
+        public IActionResult eliminarCliente(cliente cliente)
         {
             string token = Request.Headers.Where(x => x.Key =="Autorization").FirstOrDefault().Value;
 
             //elimina un cliente la db
-           
-            if(token != "marco123.")
+
+            if (token != "marco123.")
             {
-                return new
+                return Ok(new
                 {
                     success = false,
                     message = "token incorrecto",
                     result = ""
-                };
+                });
             }
 
-            return new
+            return Ok( new
             {
                 success = true,
                 message = "cliente eliminado",
                 result = cliente
-            };
+            });
         }
     }
 }
